@@ -33,3 +33,7 @@
 
 # build
 build/
+
+# python 
+poetry.lock
+pyproject.toml
