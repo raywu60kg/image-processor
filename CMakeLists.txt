@@ -14,7 +14,7 @@ FetchContent_MakeAvailable(googletest)
 
 find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
-file (GLOB source_files "./src/*.cpp")
+file (GLOB source_files "./src/*.cpp" "./src/*.h")
 add_executable(${PROJECT_NAME} ${source_files})
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} GTest::gtest_main)
@@ -22,14 +22,21 @@ target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} GTest::gtest_main)
 
 # testing
 enable_testing()
-
 add_executable(
   unitTests
   tests/hello_test.cpp
+  tests/test_image_process.cpp
+  src/image_process.h
+  src/image_process.cpp
+  # ${source_files}
+  # ${test_files}
 )
+
+# include_directories( ${source_files} )
 target_link_libraries(
   unitTests
   GTest::gtest_main
+  ${OpenCV_LIBS}
 )
 
 include(GoogleTest)
