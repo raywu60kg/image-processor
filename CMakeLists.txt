@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.0.0)
-project (image-preprocessor)
+project (image-processor)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -25,9 +25,8 @@ enable_testing()
 add_executable(
   unitTests
   tests/hello_test.cpp
-  tests/test_image_process.cpp
-  src/image_process.h
-  src/image_process.cpp
+  tests/test_image_processors.cpp
+  src/image_processors.h
   # ${source_files}
   # ${test_files}
 )

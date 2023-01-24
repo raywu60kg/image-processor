@@ -2,7 +2,7 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "../src/image_process.h"
+#include "../src/image_processors.h"
 // Reference:
 // https://stackoverflow.com/questions/9905093/how-to-check-whether-two-matrices-are-identical-in-opencv
 TEST(ShiftImageTest, BasicAssertions) {
@@ -11,10 +11,17 @@ TEST(ShiftImageTest, BasicAssertions) {
   // Get a matrix with non-zero values at points where the
   // two matrices have different valuesß
 
-  ShiftImage shift_image(1, 1);
-  cv::Mat c = shift_image.ProcessImage(a);
+  ShiftImage shift_image(1, 1, a);
+  cv::Mat c = shift_image.ProcessImage();
   cv::Mat diff = c != b;
   // Equal if no elements disagree
   bool eq = cv::countNonZero(diff) == 0;
   EXPECT_EQ(eq, true);
+}
+
+TEST(GrayScaleImageTest, BasicAssertions) {
+  cv::Mat a(2, 2, CV_8UC3, cv::Scalar(255, 255, 255));
+  GrayScaleImage gray_scale_image(a);
+  cv::Mat b = gray_scale_image.ProcessImage();
+  EXPECT_EQ(b.channels(), 1);
 }

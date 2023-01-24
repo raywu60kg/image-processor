@@ -37,3 +37,6 @@ build/
 # python 
 poetry.lock
 pyproject.toml
+
+# vscode
+.vscode/
