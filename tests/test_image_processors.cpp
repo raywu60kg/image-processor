@@ -11,8 +11,8 @@ TEST(ShiftImageTest, BasicAssertions) {
   // Get a matrix with non-zero values at points where the
   // two matrices have different valuesß
 
-  ShiftImage shift_image(1, 1, a);
-  cv::Mat c = shift_image.ProcessImage();
+  ShiftImage shift_image(1, 1);
+  cv::Mat c = shift_image.ProcessImage(a);
   cv::Mat diff = c != b;
   // Equal if no elements disagree
   bool eq = cv::countNonZero(diff) == 0;
@@ -21,7 +21,7 @@ TEST(ShiftImageTest, BasicAssertions) {
 
 TEST(GrayScaleImageTest, BasicAssertions) {
   cv::Mat a(2, 2, CV_8UC3, cv::Scalar(255, 255, 255));
-  GrayScaleImage gray_scale_image(a);
-  cv::Mat b = gray_scale_image.ProcessImage();
+  GrayScaleImage gray_scale_image;
+  cv::Mat b = gray_scale_image.ProcessImage(a);
   EXPECT_EQ(b.channels(), 1);
 }

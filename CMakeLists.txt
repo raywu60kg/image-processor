@@ -24,9 +24,9 @@ target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} GTest::gtest_main)
 enable_testing()
 add_executable(
   unitTests
-  tests/hello_test.cpp
   tests/test_image_processors.cpp
   src/image_processors.h
+  src/config.h 
   # ${source_files}
   # ${test_files}
 )
