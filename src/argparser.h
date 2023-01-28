@@ -17,6 +17,11 @@ Config getConfig(int argc, char* argv[]) {
     config.valid = false;
     return config;
   }
+  if (!cmdOptionExists(argv, argv + argc, "--method")) {
+    config.valid = false;
+    std::cout << "You have to put the method parameter." << std::endl;
+    return config;
+  }
 
   int idx = 1;
   while (idx < argc) {
@@ -37,10 +42,10 @@ Config getConfig(int argc, char* argv[]) {
           return config;
         }
       }
-      if (strcmp(argv[idx], "--input_image_dir")) {
+      if (strcmp(argv[idx], "--input_image_dir") == 0) {
         config.input_image_dir = argv[idx + 1];
       }
-      if (strcmp(argv[idx], "--output_image_dir")) {
+      if (strcmp(argv[idx], "--output_image_dir") == 0) {
         config.input_image_dir = argv[idx + 1];
       }
       idx += 2;

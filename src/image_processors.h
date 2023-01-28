@@ -39,8 +39,8 @@ class GrayScaleImage : public ImageProcessor {
 
 class CreateImageProcessor {
  public:
-  virtual ImageProcessor* GetImageProcessor() = 0;
-  cv::Mat process(cv::Mat image) {
+  virtual ImageProcessor* GetImageProcessor() const = 0;
+  cv::Mat process(cv::Mat image) const {
     ImageProcessor* pImageProcessor = this->GetImageProcessor();
     std::cout << pImageProcessor->GetProcessName() << std::endl;
     cv::Mat result_image = pImageProcessor->ProcessImage(image);
@@ -59,7 +59,7 @@ class CreateShiftImageProcessor : public CreateImageProcessor {
     offset_x = config.offset_x;
     offset_y = config.offset_y;
   }
-  ImageProcessor* GetImageProcessor() override {
+  ImageProcessor* GetImageProcessor() const override {
     return new ShiftImage(offset_x, offset_y);
   }
 };
@@ -67,10 +67,12 @@ class CreateShiftImageProcessor : public CreateImageProcessor {
 class CreateGrayScaleImageProcessor : public CreateImageProcessor {
  public:
   CreateGrayScaleImageProcessor(const Config& config) {}
-  ImageProcessor* GetImageProcessor() override { return new GrayScaleImage(); }
+  ImageProcessor* GetImageProcessor() const override {
+    return new GrayScaleImage();
+  }
 };
 
-cv::Mat ImageProcessorClient(CreateImageProcessor& image_processor,
+cv::Mat ImageProcessorClient(const CreateImageProcessor& image_processor,
                              cv::Mat image) {
   return image_processor.process(image);
 }
