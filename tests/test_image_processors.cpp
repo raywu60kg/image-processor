@@ -2,7 +2,7 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "../src/image_processors.h"
+#include "../src/image_processors.hpp"
 // Reference:
 // https://stackoverflow.com/questions/9905093/how-to-check-whether-two-matrices-are-identical-in-opencv
 TEST(ShiftImageTest, BasicAssertions) {

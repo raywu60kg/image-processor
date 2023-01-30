@@ -3,7 +3,7 @@
 #include <opencv2/opencv.hpp>
 #include <string>
 
-#include "./config.h"
+#include "./config.hpp"
 
 class ImageProcessor {
  public:
@@ -55,10 +55,8 @@ class CreateShiftImageProcessor : public CreateImageProcessor {
   int offset_y;
 
  public:
-  CreateShiftImageProcessor(const Config& config) {
-    offset_x = config.offset_x;
-    offset_y = config.offset_y;
-  }
+  explicit CreateShiftImageProcessor(const Config& config)
+      : offset_x(config.offset_x), offset_y(config.offset_y) {}
   ImageProcessor* GetImageProcessor() const override {
     return new ShiftImage(offset_x, offset_y);
   }
@@ -66,7 +64,7 @@ class CreateShiftImageProcessor : public CreateImageProcessor {
 
 class CreateGrayScaleImageProcessor : public CreateImageProcessor {
  public:
-  CreateGrayScaleImageProcessor(const Config& config) {}
+  explicit CreateGrayScaleImageProcessor(const Config& config) {}
   ImageProcessor* GetImageProcessor() const override {
     return new GrayScaleImage();
   }

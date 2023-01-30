@@ -14,7 +14,7 @@ FetchContent_MakeAvailable(googletest)
 
 find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
-file (GLOB source_files "./src/*.cpp" "./src/*.h")
+file (GLOB source_files "./src/*.cpp" "./src/*.hpp")
 add_executable(${PROJECT_NAME} ${source_files})
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} GTest::gtest_main)
@@ -25,8 +25,8 @@ enable_testing()
 add_executable(
   unitTests
   tests/test_image_processors.cpp
-  src/image_processors.h
-  src/config.h 
+  src/image_processors.hpp
+  src/config.hpp
   # ${source_files}
   # ${test_files}
 )

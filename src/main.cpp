@@ -1,9 +1,9 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-#include "./argparser.h"
-#include "./config.h"
-#include "./image_processors.h"
+#include "./argparser.hpp"
+#include "./config.hpp"
+#include "./image_processors.hpp"
 int main(int argc, char* argv[]) {
   Config config = getConfig(argc, argv);
   if (!config.valid) {
