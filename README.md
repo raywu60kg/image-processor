@@ -1,16 +1,29 @@
 # image-processor
-## usages
+[![GitHub Actions status](https://github.com/raywu60kg/image-processor/workflows/main/badge.svg)](https://github.com/raywu60kg/image-processor/actions)
+[![GitHub Actions status](https://github.com/raywu60kg/image-processor/workflows/release/badge.svg)](https://github.com/raywu60kg/image-processor/actions)
+[![GitHub](https://img.shields.io/github/license/xresloader/upload-to-github-release)](LICENSE)
+![image](images/image-processor.png)
+
+## Usages
 ### help
+Display the description of this command line tools
 ```bash
 ./image-processor --help
 ```
-### shift image
+### Shift image
+Shift image based on the arguments `offset_x` and `offset_y`.
+![image](images/image-processor-shift.png)
 ```bash
 ./image-processor --method shift_image --input_image_dir <image directory> --offset_x <offset x axis>  --offset_x <offset y axis>
 ```
 ### gray scale image
+![image](images/image-processor-grayscale.png)
 ```bash
 ./image-processor --method gray_scale_image --input_image_dir <image directory> --offset_x <offset x axis>  --offset_x <offset y axis>
 ```
-## compiler 
-clang 12.0.5
+## Installation guild
+### For linux
+[check here](https://github.com/raywu60kg/image-processor/blob/main/docs/linux-installation.md)
+
+### For Mac ARM
+[check here](https://github.com/raywu60kg/image-processor/blob/main/docs/macOS-installation.md)

@@ -13,8 +13,8 @@ int main(int argc, char* argv[]) {
   CreateImageProcessor* create_image_processor;
   if (config.method == EShiftImage) {
     create_image_processor = new CreateShiftImageProcessor(config);
-  } else if (config.method == EGrayScaleImage) {
-    create_image_processor = new CreateGrayScaleImageProcessor(config);
+  } else if (config.method == EGrayscaleImage) {
+    create_image_processor = new CreateGrayscaleImageProcessor(config);
   }
   cv::Mat result_image = ImageProcessorClient(*create_image_processor, image);
   cv::imwrite(config.output_image_dir, result_image);

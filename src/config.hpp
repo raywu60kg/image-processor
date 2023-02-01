@@ -2,11 +2,11 @@
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
-enum ImageProcessMethod { EDefault, EShiftImage, EGrayScaleImage };
+enum ImageProcessMethod { EDefault, EShiftImage, EGrayscaleImage };
 
 static std::unordered_map<std::string, ImageProcessMethod>
     IMAGE_PROCESS_MAPPING_TABLE = {{"shift_image", EShiftImage},
-                                   {"gray_scale_image", EGrayScaleImage}};
+                                   {"grayscale_image", EGrayscaleImage}};
 static std::unordered_set<std::string> VALID_ARGUMENT{
     "--offset_x", "--offset_y", "--method", "--input_image_dir",
     "--output_image_dir"};

@@ -8,7 +8,24 @@
 bool cmdOptionExists(char** begin, char** end, const std::string& option) {
   return std::find(begin, end, option) != end;
 }
-void displayHelp() { std::cout << "hello" << std::endl; }
+// reference: http://docopt.org/
+void displayHelp() {
+  std::cout << "Image processor." << std::endl;
+  std::cout << "\n" << std::endl;
+  std::cout << "Usags:" << std::endl;
+  std::cout << "  image-processor --help" << std::endl;
+  std::cout << "  image-processor --method shift_image --input_image_dir <intput image directory> [--output_image_dir <output image directory>] [--offset_x=<x>] [--offset_y=<y>]"<< std::endl;
+  std::cout << "  image-processor --method grayscale_image --input_image_dir <intput image directory> [--output_image_dir <output image directory>]" << std::endl;
+  std::cout << "\n" << std::endl;
+  std::cout << "Options:" << std::endl;
+  std::cout << "  --help                    Display the description." << std::endl;
+  std::cout << "  --method grayscale_image  Convert given image to grayscale image." << std::endl;
+  std::cout << "  --method shift_image      Shift given image." << std::endl;
+  std::cout << "  --input_image_dir         directory of input image." << std::endl;
+  std::cout << "  --output_image_dir        directory of output image [default: ./result_image.png]." << std::endl;
+  std::cout << "  --offset_x                Shift given image on x-axis by given number of pixels [default: 0]." << std::endl;
+  std::cout << "  --offset_y                Shift given image on y-axis by given number of pixels [default: 0]." << std::endl;
+}
 
 Config getConfig(int argc, char* argv[]) {
   Config config;

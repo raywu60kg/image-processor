@@ -17,8 +17,7 @@ include_directories( ${OpenCV_INCLUDE_DIRS} )
 file (GLOB source_files "./src/*.cpp" "./src/*.hpp")
 add_executable(${PROJECT_NAME} ${source_files})
 
-target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} GTest::gtest_main)
-
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 
 # testing
 enable_testing()
@@ -27,11 +26,8 @@ add_executable(
   tests/test_image_processors.cpp
   src/image_processors.hpp
   src/config.hpp
-  # ${source_files}
-  # ${test_files}
 )
 
-# include_directories( ${source_files} )
 target_link_libraries(
   unitTests
   GTest::gtest_main

@@ -18,7 +18,7 @@ class ShiftImage : public ImageProcessor {
   int offset_y_;
   ShiftImage(int offset_x, int offset_y)
       : offset_x_(offset_x), offset_y_(offset_y) {}
-  const std::string GetProcessName() override { return "shift image"; }
+  const std::string GetProcessName() override { return "Shift image"; }
   cv::Mat ProcessImage(cv::Mat image) override {
     cv::Mat trans_mat =
         (cv::Mat_<double>(2, 3) << 1, 0, offset_x_, 0, 1, offset_y_);
@@ -29,7 +29,7 @@ class ShiftImage : public ImageProcessor {
 
 class GrayScaleImage : public ImageProcessor {
  public:
-  const std::string GetProcessName() override { return "gray scale image"; }
+  const std::string GetProcessName() override { return "Grayscale image"; }
   cv::Mat ProcessImage(cv::Mat image) override {
     cv::Mat image_gray;
     cv::cvtColor(image, image_gray, cv::COLOR_RGB2GRAY);
@@ -62,9 +62,9 @@ class CreateShiftImageProcessor : public CreateImageProcessor {
   }
 };
 
-class CreateGrayScaleImageProcessor : public CreateImageProcessor {
+class CreateGrayscaleImageProcessor : public CreateImageProcessor {
  public:
-  explicit CreateGrayScaleImageProcessor(const Config& config) {}
+  explicit CreateGrayscaleImageProcessor(const Config& config) {}
   ImageProcessor* GetImageProcessor() const override {
     return new GrayScaleImage();
   }

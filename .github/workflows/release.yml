@@ -9,7 +9,7 @@ env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  OPENCV_VERSION: 4.7.0
 jobs:
   build-ubuntu:
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
@@ -30,7 +30,7 @@ jobs:
       with:  
         dir: ./opencv-install
         cached: ${{ steps.opencv-cache.outputs.cache-hit }}
-        opencv-version: '4.6.0'
+        opencv-version: ${{ OPENCV_VERSION }}
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
@@ -53,7 +53,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }} (ubuntu)
+        release_name: Release ${{ github.ref }} (linux)
         body: |
           Test upload-to-github-release works with `actions/create-release`
         draft: true
