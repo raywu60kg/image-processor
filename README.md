@@ -1,9 +1,10 @@
 # image-processor
-[![GitHub Actions status](https://github.com/raywu60kg/image-processor/workflows/main/badge.svg)](https://github.com/raywu60kg/image-processor/actions)
+[![GitHub Actions status](https://github.com/raywu60kg/image-processor/workflows/test/badge.svg)](https://github.com/raywu60kg/image-processor/actions)
 [![GitHub Actions status](https://github.com/raywu60kg/image-processor/workflows/release/badge.svg)](https://github.com/raywu60kg/image-processor/actions)
 [![GitHub](https://img.shields.io/github/license/xresloader/upload-to-github-release)](LICENSE)
 ![image](images/image-processor.png)
 
+C++ command line tool for processing image. 
 ## Usages
 ### help
 Display the description of this command line tools
