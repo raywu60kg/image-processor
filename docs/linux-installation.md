@@ -15,7 +15,6 @@ cmake -B ./build -DCMAKE_BUILD_TYPE=Release
 ```
 ### option 1.2 Build project by cmake
 ```
-mkdir -p build
 cmake --build ./build --config Release
 ```
 
