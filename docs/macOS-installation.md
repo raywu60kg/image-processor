@@ -1,5 +1,5 @@
 # masOS installation
-Installation guide for Mac arm chip
+Installation guide for MacOS(x64 or arm)
 
 ## 1. Install cmake
 [check here](https://cmake.org/install/)
@@ -12,6 +12,9 @@ git clone https://github.com/opencv/opencv.git
 mkdir build && cd build
 
 cmake ../opencv/ .
+
+
+## remove arch -arm64 for x64 MacOS on the following commands
 
 arch -arm64 cmake ../opencv/ -DWITH_QT=OFF -DWITH_OPENGL=OFF -DFORCE_VTK=OFF -DWITH_TBB=OFF -DWITH_GDAL=OFF -DWITH_XINE=OFF -DBUILD_EXAMPLES=OFF -DBUILD_ZLIB=OFF -DBUILD_TESTS=OFF .
 
@@ -35,7 +38,9 @@ git clone https://github.com/raywu60kg/image-processor.git && cd "$_"
 ## 5. Build project by cmake
 ```
 mkdir -p build
-cmake --build ./build --config Release
+cmake -B ./build -DCMAKE_BUILD_TYPE=Release
+cd build
+make
 ```
 
 ## 6. Finish
