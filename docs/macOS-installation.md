@@ -31,14 +31,18 @@ Reference: https://gist.github.com/nucliweb/b2a234c673221af5ec24508da7d8b854
 ```
 git clone https://github.com/raywu60kg/image-processor.git && cd "$_"
 ```
+## 5. Configure CMake cmake
+```
+cmake -B ./build -DCMAKE_BUILD_TYPE=Release
+```
 
-## 5. Build project by cmake
+## 6. Build project by cmake
 ```
 mkdir -p build
 cmake --build ./build --config Release
 ```
 
-## 6. Finish
+## 7. Finish
 Now, you can find the binary file `image-processor` in build folder. You can test it by 
 ```bash
 ./build/image-processor --help

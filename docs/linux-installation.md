@@ -9,13 +9,17 @@ Installation guide for linux
 git clone https://github.com/raywu60kg/image-processor.git && cd "$_"
 ```
 
-### option 1.1 Build project by cmake
+### option 1.2 Configure CMake cmake
+```
+cmake -B ./build -DCMAKE_BUILD_TYPE=Release
+```
+### option 1.2 Build project by cmake
 ```
 mkdir -p build
 cmake --build ./build --config Release
 ```
 
-### option 1.2 Finish
+### option 1.3 Finish
 Now, you can find the binary file `image-processor` in build folder. You can test it by 
 ```bash
 ./build/image-processor --help
