@@ -22,7 +22,7 @@ Shift image based on the arguments `offset_x` and `offset_y`.
 ### gray scale image
 ![image](images/image-processor-grayscale.png)
 ```bash
-./image-processor --method gray_scale_image --input_image_dir <image directory> --offset_x <offset x axis>  --offset_x <offset y axis>
+./image-processor --method grayscale_image --input_image_dir <image directory> --offset_x <offset x axis>  --offset_x <offset y axis>
 ```
 ## Installation guild
 ### For linux
