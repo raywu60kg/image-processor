@@ -40,6 +40,8 @@ git clone https://github.com/raywu60kg/image-processor.git && cd "$_"
 mkdir -p build
 cmake -B ./build -DCMAKE_BUILD_TYPE=Release
 cmake --build ./build --config Release
+cd build
+make
 ```
 
 ## 6. Finish
